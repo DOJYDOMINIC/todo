@@ -36,8 +36,9 @@ class _HomepageState extends State<Homepage> {
             child: ListView.builder(
               itemCount: providerone.my_box.length,
               itemBuilder: (context, index) => ListTile(
+                leading: Text((index+1).toString(),style: title_text,),
                 title: Text(providerone.my_box.getAt(index)['title'],style: title_text,),
-                subtitle: Text(providerone.my_box.getAt(index)['subtitle']),
+                subtitle: Text(providerone.my_box.getAt(index)['subtitle'],style: sub_text),
                 trailing: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -73,14 +74,13 @@ class _HomepageState extends State<Homepage> {
                                     _subtitle.text,
                                   );
                                   Navigator.pop(context);
-                                  _title.clear();
-                                  _subtitle.clear();
                                 },
                                 child: Text("Save"),
                               ),
                               ElevatedButton(
                                 onPressed: () {
                                   Navigator.pop(context);
+
                                 },
                                 child: Text("Cancel"),
                               ),
@@ -133,8 +133,6 @@ class _HomepageState extends State<Homepage> {
                             _subtitle.text,
                           );
                           Navigator.pop(context);
-                          _title.clear();
-                          _subtitle.clear();
                         },
                         child: Text("Create"),
                       ),
