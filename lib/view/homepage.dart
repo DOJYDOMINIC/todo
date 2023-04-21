@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo/constant/constant.dart';
 
 import '../control/providerone.dart';
 
@@ -25,7 +26,9 @@ class _HomepageState extends State<Homepage> {
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('TodoApp'),
+      ),
       body: Column(
         children: [
           Container(
@@ -33,8 +36,7 @@ class _HomepageState extends State<Homepage> {
             child: ListView.builder(
               itemCount: providerone.my_box.length,
               itemBuilder: (context, index) => ListTile(
-                // leading: Icon(Icons.check_box),
-                title: Text(providerone.my_box.getAt(index)['title']),
+                title: Text(providerone.my_box.getAt(index)['title'],style: title_text,),
                 subtitle: Text(providerone.my_box.getAt(index)['subtitle']),
                 trailing: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -71,6 +73,8 @@ class _HomepageState extends State<Homepage> {
                                     _subtitle.text,
                                   );
                                   Navigator.pop(context);
+                                  _title.clear();
+                                  _subtitle.clear();
                                 },
                                 child: Text("Save"),
                               ),
@@ -129,6 +133,8 @@ class _HomepageState extends State<Homepage> {
                             _subtitle.text,
                           );
                           Navigator.pop(context);
+                          _title.clear();
+                          _subtitle.clear();
                         },
                         child: Text("Create"),
                       ),

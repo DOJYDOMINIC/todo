@@ -3,8 +3,8 @@ import 'package:hive/hive.dart';
 
 class ProviderOne with ChangeNotifier {
   final my_box = Hive.box('my_box');
-  List<dynamic> get items => my_box.values.toList();
 
+  List<dynamic> get items => my_box.values.toList();
 
   void addItem(String title, String subtitle) {
     my_box.add({'title': title, 'subtitle': subtitle});
@@ -16,7 +16,7 @@ class ProviderOne with ChangeNotifier {
     notifyListeners();
   }
 
-  deleteItem(int index) {
+  void deleteItem(int index) {
     my_box.deleteAt(index);
     notifyListeners();
   }
