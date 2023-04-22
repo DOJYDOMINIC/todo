@@ -136,11 +136,15 @@ class _HomepageState extends State<Homepage> {
                         },
                         child: Text("Create"),
                       ),
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: Text("Cancel"),
+                      SizedBox(
+                        height: 30,
+                        width:100,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text("Cancel"),
+                        ),
                       ),
                     ],
                   ),

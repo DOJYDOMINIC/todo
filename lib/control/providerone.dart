@@ -1,9 +1,9 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:hive/hive.dart';
 
 class ProviderOne with ChangeNotifier {
   final my_box = Hive.box('my_box');
-
 
   List<dynamic> get items => my_box.values.toList();
 
@@ -16,11 +16,12 @@ class ProviderOne with ChangeNotifier {
   //   my_box.putAt(index, {'title': title, 'subtitle': subtitle});
   //   notifyListeners();
   // }
+
+
   void updateItem(int index, String newTitle, String newSubtitle) {
     final item = my_box.getAt(index);
     if (item != null) {
-      final updatedItem = {'title': newTitle, 'subtitle': newSubtitle};
-      my_box.putAt(index, updatedItem);
+      my_box.putAt(index,{'title': newTitle, 'subtitle': newSubtitle});
       notifyListeners();
     }
   }
